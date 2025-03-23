@@ -11,6 +11,7 @@ def find_nearest_stronghold(cities, x, y):
     if cities[i][j] == 0:
       return distance
     for dx, dy in directions:
+      # Calculates distance
       new_i, new_j = i + dx, j + dy
       if new_i not in range(m) or new_j not in range(n) or cities[new_i][new_j] == -1:
         continue
@@ -19,9 +20,11 @@ def find_nearest_stronghold(cities, x, y):
 
 
 def nearest_cities(cities):
+  # Initializes array
   m, n = len(cities), len(cities[0])
   for i in range(m):
     for j in range(n):
+      # Runs through the separate function to find nearest stronghold
       if cities[i][j] == float('inf'):
         cities[i][j] = find_nearest_stronghold(cities, i, j)
 
